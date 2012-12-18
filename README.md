@@ -1,4 +1,4 @@
-#Backlog4j
+#escalade-backlog
 [Backlog API](http://www.backlog.jp/api/ "Backlog API") の Scala ラッパーライブラリです。
 
 ##一般APIの使用
