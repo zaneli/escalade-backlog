@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><methodCall><methodName>backlog.deleteIssueType</methodName><params><param><value><struct><member><name>id</name><value><i4>123</i4></value></member><member><name>substitute_id</name><value><i4>456</i4></value></member></struct></value></param></params></methodCall>

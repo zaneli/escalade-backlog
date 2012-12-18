@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<methodResponse>
+  <params>
+    <param>
+      <value>
+        <array>
+          <data>
+            <value>
+              <struct>
+                <member>
+                  <name>id</name>
+                  <value>
+                    <int>123</int>
+                  </value>
+                </member>
+                <member>
+                  <name>name</name>
+                  <value>
+                    <string>要望</string>
+                  </value>
+                </member>
+                <member>
+                  <name>color</name>
+                  <value>
+                    <string>#FF9200</string>
+                  </value>
+                </member>
+              </struct>
+            </value>
+          </data>
+        </array>
+      </value>
+    </param>
+  </params>
+</methodResponse>

@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><methodCall><methodName>backlog.addComment</methodName><params><param><value><struct><member><name>key</name><value>BLG-10</value></member><member><name>content</name><value>テストコメント</value></member></struct></value></param></params></methodCall>

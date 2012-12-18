@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><methodCall><methodName>backlog.admin.addProjectUser</methodName><params><param><value><struct><member><name>project_id</name><value><i4>12</i4></value></member><member><name>user_id</name><value><i4>9876</i4></value></member></struct></value></param></params></methodCall>

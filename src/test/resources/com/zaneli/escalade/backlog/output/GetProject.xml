@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<methodResponse>
+  <params>
+    <param>
+      <value>
+        <struct>
+          <member>
+            <name>url</name>
+            <value>
+              <string>https://demo.backlog.jp/projects/DORA</string>
+            </value>
+          </member>
+          <member>
+            <name>name</name>
+            <value>
+              <string>ネコ型ロボット製造計画</string>
+            </value>
+          </member>
+          <member>
+            <name>id</name>
+            <value>
+              <i4>1</i4>
+            </value>
+          </member>
+          <member>
+            <name>key</name>
+            <value>
+              <string>DORA</string>
+            </value>
+          </member>
+          <member>
+            <name>archived</name>
+            <value>
+              <boolean>0</boolean>
+            </value>
+          </member>
+        </struct>
+      </value>
+    </param>
+  </params>
+</methodResponse>

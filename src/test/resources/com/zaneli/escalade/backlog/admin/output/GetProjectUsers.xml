@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<methodResponse>
+  <params>
+    <param>
+      <value>
+        <array>
+          <data>
+            <value>
+              <struct>
+                <member>
+                  <name>id</name>
+                  <value><string>9876</string></value>
+                </member>
+                <member>
+                  <name>user_id</name>
+                  <value><string>admin</string></value>
+                </member>
+                <member>
+                  <name>name</name>
+                  <value><string>管理者</string></value>
+                </member>
+              </struct>
+            </value>
+            <value>
+              <struct>
+                <member>
+                  <name>id</name>
+                  <value><string>9877</string></value>
+                </member>
+                <member>
+                  <name>user_id</name>
+                  <value><string>yamamoto</string></value>
+                </member>
+                <member>
+                  <name>name</name>
+                  <value><string>やまもと</string></value>
+                </member>
+              </struct>
+            </value>
+          </data>
+        </array>
+      </value>
+    </param>
+  </params>
+</methodResponse>
