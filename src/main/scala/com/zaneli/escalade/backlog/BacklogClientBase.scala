@@ -12,7 +12,7 @@ abstract class BacklogClientBase protected (spaceId: String, username: String, p
     clientConfig.setServerURL(new java.net.URL("https://" + spaceId + ".backlog.jp/XML-RPC"))
   } catch {
     case e: java.net.MalformedURLException =>
-      throw new BacklogException(e)
+      throw new BacklogException(cause = e)
   }
 
   clientConfig.setBasicUserName(username)
@@ -27,7 +27,7 @@ abstract class BacklogClientBase protected (spaceId: String, username: String, p
     client.execute(getMethodPrefix() + method, params)
   } catch {
     case e: org.apache.xmlrpc.XmlRpcException =>
-      throw new BacklogException(e)
+      throw new BacklogException(cause = e)
   }
 
   protected def execute(method: String, model: RequestModel): Object = {
@@ -45,7 +45,7 @@ abstract class BacklogClientBase protected (spaceId: String, username: String, p
       client.execute(getMethodPrefix() + method, Array[Object](params))
     } catch {
       case e: org.apache.xmlrpc.XmlRpcException =>
-        throw new BacklogException(e)
+        throw new BacklogException(cause = e)
     }
   }
 }

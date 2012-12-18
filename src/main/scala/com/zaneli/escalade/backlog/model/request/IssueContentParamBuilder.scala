@@ -3,7 +3,7 @@ package com.zaneli.escalade.backlog.model.request
 import com.zaneli.escalade.backlog.model.{ FormatedDate, PriorityType, ResolutionType }
 
 sealed abstract class IssueContentParamBuilder[A <: RequestModel] private[request] (params: Map[String, Any])
-  extends RequestParamBuilder[A](params: Map[String, Any]) {
+  extends RequestParamBuilder[A](params) {
 
   def description(description: String): This = {
     newBuilder("description", description)
@@ -75,7 +75,7 @@ sealed abstract class IssueContentParamBuilder[A <: RequestModel] private[reques
 }
 
 object IssueContentParamBuilder {
-  class CustomFieldParam private (params: Map[String, Any]) extends RequestModel(params: Map[String, Any]) {
+  class CustomFieldParam private (params: Map[String, Any]) extends RequestModel(params) {
 
   }
 
@@ -90,7 +90,7 @@ object IssueContentParamBuilder {
 }
 
 class CreateIssueParamBuilder private (params: Map[String, Any])
-  extends IssueContentParamBuilder[CreateIssueParamBuilder.CreateIssueParam](params: Map[String, Any]) {
+  extends IssueContentParamBuilder[CreateIssueParamBuilder.CreateIssueParam](params) {
 
   type This = CreateIssueParamBuilder
 
@@ -104,12 +104,12 @@ object CreateIssueParamBuilder {
     new CreateIssueParamBuilder(Map("projectId" -> projectId, "summary" -> summary))
   }
   class CreateIssueParam private[CreateIssueParamBuilder] (params: Map[String, Any])
-    extends RequestModel(params: Map[String, Any]) {
+    extends RequestModel(params) {
   }
 }
 
 class UpdateIssueParamBuilder private (params: Map[String, Any])
-  extends IssueContentParamBuilder[UpdateIssueParamBuilder.UpdateIssueParam](params: Map[String, Any]) {
+  extends IssueContentParamBuilder[UpdateIssueParamBuilder.UpdateIssueParam](params) {
 
   type This = UpdateIssueParamBuilder
 
@@ -135,6 +135,6 @@ object UpdateIssueParamBuilder {
     new UpdateIssueParamBuilder(Map("key" -> key))
   }
   class UpdateIssueParam private[UpdateIssueParamBuilder] (params: Map[String, Any])
-    extends RequestModel(params: Map[String, Any]) {
+    extends RequestModel(params) {
   }
 }

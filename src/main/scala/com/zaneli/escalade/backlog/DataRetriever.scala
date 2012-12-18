@@ -130,6 +130,10 @@ private object DataRetriever {
     val obj = cls.getField("MODULE$").get(null)
     val method = cls.getDeclaredMethod("apply", classOf[Map[String, Any]])
     method.setAccessible(true)
+    try {
     method.invoke(obj, map).asInstanceOf[A]
+    } catch {
+      case e: java.lang.reflect.InvocationTargetException => throw new BacklogException("response data is empty")
+    }
   }
 }

@@ -39,7 +39,7 @@ class EscaladeTypeFactory(org: TypeFactory) extends TypeFactory {
 }
 
 class IntArraySerializer(pTypeFactory: TypeFactory, pConfig: XmlRpcStreamConfig)
-  extends ObjectArraySerializer(pTypeFactory: TypeFactory, pConfig: XmlRpcStreamConfig) {
+  extends ObjectArraySerializer(pTypeFactory, pConfig) {
   override def writeData(pHandler: ContentHandler, pData: Object) {
     pData match {
       case intArray: Array[Int] => super.writeData(pHandler, intArray.map(Integer.valueOf(_)).toArray)
@@ -48,7 +48,7 @@ class IntArraySerializer(pTypeFactory: TypeFactory, pConfig: XmlRpcStreamConfig)
 }
 
 class ScalaMapSerializer(pTypeFactory: TypeFactory, pConfig: XmlRpcStreamConfig)
-  extends MapSerializer(pTypeFactory: TypeFactory, pConfig: XmlRpcStreamConfig) {
+  extends MapSerializer(pTypeFactory, pConfig) {
   override def writeData(pHandler: ContentHandler, pData: Object) {
     import collection.JavaConversions._
     pData match {

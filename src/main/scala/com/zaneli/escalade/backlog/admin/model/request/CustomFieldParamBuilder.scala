@@ -3,7 +3,7 @@ package com.zaneli.escalade.backlog.admin.model.request
 import com.zaneli.escalade.backlog.model.request.{ RequestModel, RequestParamBuilder }
 
 sealed abstract class CustomFieldParamBuilder[A <: RequestModel] private[request] (params: Map[String, Any])
-  extends RequestParamBuilder[A](params: Map[String, Any]) {
+  extends RequestParamBuilder[A](params) {
 
   import com.zaneli.escalade.backlog.model.FormatedDate
 
@@ -52,7 +52,7 @@ sealed abstract class CustomFieldParamBuilder[A <: RequestModel] private[request
 }
 
 class AddCustomFieldParamBuilder private (params: Map[String, Any])
-  extends CustomFieldParamBuilder[AddCustomFieldParamBuilder.AddCustomFieldParam](params: Map[String, Any]) {
+  extends CustomFieldParamBuilder[AddCustomFieldParamBuilder.AddCustomFieldParam](params) {
 
   type This = AddCustomFieldParamBuilder
 
@@ -69,12 +69,12 @@ object AddCustomFieldParamBuilder {
       Map("projectId" -> projectId, "typeId" -> customType.id, "name" -> name, "issueTypes" -> issueTypes))
   }
   class AddCustomFieldParam private[AddCustomFieldParamBuilder] (params: Map[String, Any])
-    extends RequestModel(params: Map[String, Any]) {
+    extends RequestModel(params) {
   }
 }
 
 class UpdateCustomFieldParamBuilder private (params: Map[String, Any])
-  extends CustomFieldParamBuilder[UpdateCustomFieldParamBuilder.UpdateCustomFieldParam](params: Map[String, Any]) {
+  extends CustomFieldParamBuilder[UpdateCustomFieldParamBuilder.UpdateCustomFieldParam](params) {
 
   type This = UpdateCustomFieldParamBuilder
 
@@ -88,6 +88,6 @@ object UpdateCustomFieldParamBuilder {
     new UpdateCustomFieldParamBuilder(Map("id" -> id, "name" -> name, "issueTypes" -> issueTypes))
   }
   class UpdateCustomFieldParam private[UpdateCustomFieldParamBuilder] (params: Map[String, Any])
-    extends RequestModel(params: Map[String, Any]) {
+    extends RequestModel(params) {
   }
 }

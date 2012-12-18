@@ -54,11 +54,7 @@ object CustomFieldValue {
     override val customType: CustomFieldType,
     override val description: Option[String],
     override val required: Boolean,
-    value: Option[String]) extends CustomFieldValue(
-    id: Int, name: String,
-    customType: CustomFieldType,
-    description: Option[String],
-    required: Boolean) {
+    value: Option[String]) extends CustomFieldValue(id, name, customType, description, required) {
 
   }
 
@@ -68,11 +64,7 @@ object CustomFieldValue {
     override val customType: CustomFieldType,
     override val description: Option[String],
     override val required: Boolean,
-    value: Option[Double]) extends CustomFieldValue(
-    id: Int, name: String,
-    customType: CustomFieldType,
-    description: Option[String],
-    required: Boolean) {
+    value: Option[Double]) extends CustomFieldValue(id, name, customType, description, required) {
 
   }
 
@@ -82,11 +74,7 @@ object CustomFieldValue {
     override val customType: CustomFieldType,
     override val description: Option[String],
     override val required: Boolean,
-    value: Option[java.util.Date]) extends CustomFieldValue(
-    id: Int, name: String,
-    customType: CustomFieldType,
-    description: Option[String],
-    required: Boolean) {
+    value: Option[java.util.Date]) extends CustomFieldValue(id, name, customType, description, required) {
 
   }
 
@@ -96,11 +84,7 @@ object CustomFieldValue {
     override val customType: CustomFieldType,
     override val description: Option[String],
     override val required: Boolean,
-    values: Array[Int]) extends CustomFieldValue(
-    id: Int, name: String,
-    customType: CustomFieldType,
-    description: Option[String],
-    required: Boolean) {
+    values: Array[Int]) extends CustomFieldValue(id, name, customType, description, required) {
 
   }
 
@@ -112,11 +96,7 @@ object CustomFieldValue {
     override val required: Boolean,
     allowInput: Boolean,
     otherText: Option[String],
-    values: Array[Int]) extends CustomFieldValue(
-    id: Int, name: String,
-    customType: CustomFieldType,
-    description: Option[String],
-    required: Boolean) {
+    values: Array[Int]) extends CustomFieldValue(id, name, customType, description, required) {
 
   }
 }

@@ -1,5 +1,5 @@
 package com.zaneli.escalade.backlog
 
-class BacklogException(cause: Throwable) extends Exception(cause) {
+class BacklogException(message: String = null, cause: Throwable = null) extends Exception(message, cause) {
 
 }

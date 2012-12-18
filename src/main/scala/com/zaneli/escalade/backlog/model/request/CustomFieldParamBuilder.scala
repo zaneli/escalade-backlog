@@ -1,12 +1,12 @@
 package com.zaneli.escalade.backlog.model.request
 
 sealed abstract class CustomFieldParamBuilder[A <: RequestModel] private[request] (params: Map[String, Any])
-  extends RequestParamBuilder[A](params: Map[String, Any]) {
+  extends RequestParamBuilder[A](params) {
 
 }
 
 class GetCustomFieldParamBuilder private (params: Map[String, Any])
-  extends CustomFieldParamBuilder[GetCustomFieldParamBuilder.GetCustomFieldParam](params: Map[String, Any]) {
+  extends CustomFieldParamBuilder[GetCustomFieldParamBuilder.GetCustomFieldParam](params) {
 
   type This = GetCustomFieldParamBuilder
 
@@ -28,6 +28,6 @@ object GetCustomFieldParamBuilder {
     new GetCustomFieldParamBuilder(Map("projectId" -> projectId))
   }
   class GetCustomFieldParam private[GetCustomFieldParamBuilder] (params: Map[String, Any])
-    extends RequestModel(params: Map[String, Any]) {
+    extends RequestModel(params) {
   }
 }

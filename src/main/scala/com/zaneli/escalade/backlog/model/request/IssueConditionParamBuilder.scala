@@ -3,7 +3,7 @@ package com.zaneli.escalade.backlog.model.request
 import com.zaneli.escalade.backlog.model.FormatedDate
 
 sealed abstract class IssueConditionParamBuilder[A <: RequestModel] private[request] (params: Map[String, Any])
-  extends RequestParamBuilder[A](params: Map[String, Any]) {
+  extends RequestParamBuilder[A](params) {
 
   def issueTypeId(issueTypeId: Int*): This = {
     newBuilder("issueTypeId", issueTypeId)
@@ -98,7 +98,7 @@ sealed abstract class IssueConditionParamBuilder[A <: RequestModel] private[requ
 }
 
 object IssueConditionParamBuilder {
-  class CustomFieldParam private (params: Map[String, Any]) extends RequestModel(params: Map[String, Any]) {
+  class CustomFieldParam private (params: Map[String, Any]) extends RequestModel(params) {
   }
 
   object CustomFieldParam {
@@ -122,7 +122,7 @@ object IssueConditionParamBuilder {
 }
 
 class CountIssueParamBuilder private (params: Map[String, Any])
-  extends IssueConditionParamBuilder[CountIssueParamBuilder.CountIssueParam](params: Map[String, Any]) {
+  extends IssueConditionParamBuilder[CountIssueParamBuilder.CountIssueParam](params) {
 
   type This = CountIssueParamBuilder
 
@@ -136,12 +136,12 @@ object CountIssueParamBuilder {
     new CountIssueParamBuilder(Map("projectId" -> projectId))
   }
   class CountIssueParam private[CountIssueParamBuilder] (params: Map[String, Any])
-    extends RequestModel(params: Map[String, Any]) {
+    extends RequestModel(params) {
   }
 }
 
 class FindIssueParamBuilder private (params: Map[String, Any])
-  extends IssueConditionParamBuilder[FindIssueParamBuilder.FindIssueParam](params: Map[String, Any]) {
+  extends IssueConditionParamBuilder[FindIssueParamBuilder.FindIssueParam](params) {
 
   type This = FindIssueParamBuilder
 
@@ -171,6 +171,6 @@ object FindIssueParamBuilder {
     new FindIssueParamBuilder(Map("projectId" -> projectId))
   }
   class FindIssueParam private[FindIssueParamBuilder] (params: Map[String, Any])
-    extends RequestModel(params: Map[String, Any]) {
+    extends RequestModel(params) {
   }
 }

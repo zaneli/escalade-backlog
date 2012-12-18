@@ -3,12 +3,12 @@ package com.zaneli.escalade.backlog.model.request
 import com.zaneli.escalade.backlog.model.{ ResolutionType, StatusType }
 
 sealed abstract class StatusParamBuilder[A <: RequestModel] private[request] (params: Map[String, Any])
-  extends RequestParamBuilder[A](params: Map[String, Any]) {
+  extends RequestParamBuilder[A](params) {
 
 }
 
 class SwitchStatusParamBuilder private (params: Map[String, Any])
-  extends StatusParamBuilder[SwitchStatusParamBuilder.SwitchStatusParam](params: Map[String, Any]) {
+  extends StatusParamBuilder[SwitchStatusParamBuilder.SwitchStatusParam](params) {
 
   type This = SwitchStatusParamBuilder
 
@@ -34,6 +34,6 @@ object SwitchStatusParamBuilder {
     new SwitchStatusParamBuilder(Map("key" -> key, "statusId" -> status.id))
   }
   class SwitchStatusParam private[SwitchStatusParamBuilder] (params: Map[String, Any])
-    extends RequestModel(params: Map[String, Any]) {
+    extends RequestModel(params) {
   }
 }

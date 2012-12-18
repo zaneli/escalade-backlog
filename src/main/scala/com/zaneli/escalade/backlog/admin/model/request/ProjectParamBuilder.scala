@@ -3,7 +3,7 @@ package com.zaneli.escalade.backlog.admin.model.request
 import com.zaneli.escalade.backlog.model.request.{ RequestModel, RequestParamBuilder }
 
 sealed abstract class ProjectParamBuilder[A <: RequestModel] private[request] (params: Map[String, Any])
-  extends RequestParamBuilder[A](params: Map[String, Any]) {
+  extends RequestParamBuilder[A](params) {
 
   def useChart(useChart: Boolean): This = {
     newBuilder("use_chart", useChart)
@@ -11,7 +11,7 @@ sealed abstract class ProjectParamBuilder[A <: RequestModel] private[request] (p
 }
 
 class AddProjectParamBuilder private (params: Map[String, Any])
-  extends ProjectParamBuilder[AddProjectParamBuilder.AddProjectParam](params: Map[String, Any]) {
+  extends ProjectParamBuilder[AddProjectParamBuilder.AddProjectParam](params) {
 
   type This = AddProjectParamBuilder
 
@@ -31,7 +31,7 @@ object AddProjectParamBuilder {
 }
 
 class UpdateProjectParamBuilder private (params: Map[String, Any])
-  extends ProjectParamBuilder[UpdateProjectParamBuilder.UpdateProjectParam](params: Map[String, Any]) {
+  extends ProjectParamBuilder[UpdateProjectParamBuilder.UpdateProjectParam](params) {
 
   type This = UpdateProjectParamBuilder
 
@@ -57,6 +57,6 @@ object UpdateProjectParamBuilder {
     new UpdateProjectParamBuilder(Map("id" -> id))
   }
   class UpdateProjectParam private[UpdateProjectParamBuilder] (params: Map[String, Any])
-    extends RequestModel(params: Map[String, Any]) {
+    extends RequestModel(params) {
   }
 }

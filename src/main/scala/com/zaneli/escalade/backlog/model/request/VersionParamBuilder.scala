@@ -1,7 +1,7 @@
 package com.zaneli.escalade.backlog.model.request
 
 sealed abstract class VersionParamBuilder[A <: RequestModel] private[request] (params: Map[String, Any])
-  extends RequestParamBuilder[A](params: Map[String, Any]) {
+  extends RequestParamBuilder[A](params) {
 
   import com.zaneli.escalade.backlog.model.FormatedDate
 
@@ -15,7 +15,7 @@ sealed abstract class VersionParamBuilder[A <: RequestModel] private[request] (p
 }
 
 class AddVersionParamBuilder private (params: Map[String, Any])
-  extends VersionParamBuilder[AddVersionParamBuilder.AddVersionParam](params: Map[String, Any]) {
+  extends VersionParamBuilder[AddVersionParamBuilder.AddVersionParam](params) {
 
   type This = AddVersionParamBuilder
 
@@ -29,12 +29,12 @@ object AddVersionParamBuilder {
     new AddVersionParamBuilder(Map("project_id" -> projectId, "name" -> name))
   }
   class AddVersionParam private[AddVersionParamBuilder] (params: Map[String, Any])
-    extends RequestModel(params: Map[String, Any]) {
+    extends RequestModel(params) {
   }
 }
 
 class UpdateVersionParamBuilder private (params: Map[String, Any])
-  extends VersionParamBuilder[UpdateVersionParamBuilder.UpdateVersionParam](params: Map[String, Any]) {
+  extends VersionParamBuilder[UpdateVersionParamBuilder.UpdateVersionParam](params) {
 
   type This = UpdateVersionParamBuilder
 
@@ -52,6 +52,6 @@ object UpdateVersionParamBuilder {
     new UpdateVersionParamBuilder(Map("id" -> id, "name" -> name))
   }
   class UpdateVersionParam private[UpdateVersionParamBuilder] (params: Map[String, Any])
-    extends RequestModel(params: Map[String, Any]) {
+    extends RequestModel(params) {
   }
 }

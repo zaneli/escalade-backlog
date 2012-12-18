@@ -86,8 +86,7 @@ trait TestUtil extends Mockito {
 import java.io.InputStream
 import java.net.{ URL, URLConnection, HttpURLConnection }
 import org.apache.xmlrpc.client.XmlRpcSunHttpTransport
-class MockXmlRpcSunHttpTransport(client: XmlRpcClient, in: InputStream, out: OutputStream)
-  extends XmlRpcSunHttpTransport(client: XmlRpcClient) {
+class MockXmlRpcSunHttpTransport(client: XmlRpcClient, in: InputStream, out: OutputStream) extends XmlRpcSunHttpTransport(client) {
 
   var con: MockURLConnection = null;
 
@@ -99,7 +98,7 @@ class MockXmlRpcSunHttpTransport(client: XmlRpcClient, in: InputStream, out: Out
   override def getInputStream(): InputStream = in
 }
 
-class MockURLConnection(url: URL, out: OutputStream) extends HttpURLConnection(url: URL) {
+class MockURLConnection(url: URL, out: OutputStream) extends HttpURLConnection(url) {
   override def connect() {}
   override def disconnect() {}
   override def usingProxy(): Boolean = false

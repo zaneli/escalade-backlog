@@ -4,7 +4,7 @@ import com.zaneli.escalade.backlog.admin.model.RoleType
 import com.zaneli.escalade.backlog.model.request.{ RequestModel, RequestParamBuilder }
 
 sealed abstract class UserParamBuilder[A <: RequestModel] private[request] (params: Map[String, Any])
-  extends RequestParamBuilder[A](params: Map[String, Any]) {
+  extends RequestParamBuilder[A](params) {
 
   def mailSetting(mail: Boolean, comment: Boolean): This = {
     newBuilder("mail_setting", Map("mail" -> mail, "comment" -> comment))
@@ -20,7 +20,7 @@ sealed abstract class UserParamBuilder[A <: RequestModel] private[request] (para
 }
 
 class AddUserParamBuilder private (params: Map[String, Any])
-  extends UserParamBuilder[AddUserParamBuilder.AddUserParam](params: Map[String, Any]) {
+  extends UserParamBuilder[AddUserParamBuilder.AddUserParam](params) {
 
   type This = AddUserParamBuilder
 
@@ -40,12 +40,12 @@ object AddUserParamBuilder {
       "role" -> role.value))
   }
   class AddUserParam private[AddUserParamBuilder] (params: Map[String, Any])
-    extends RequestModel(params: Map[String, Any]) {
+    extends RequestModel(params) {
   }
 }
 
 class UpdateUserParamBuilder private (params: Map[String, Any])
-  extends UserParamBuilder[UpdateUserParamBuilder.UpdateUserParam](params: Map[String, Any]) {
+  extends UserParamBuilder[UpdateUserParamBuilder.UpdateUserParam](params) {
 
   type This = UpdateUserParamBuilder
 
@@ -75,7 +75,7 @@ object UpdateUserParamBuilder {
     new UpdateUserParamBuilder(Map("id" -> id))
   }
   class UpdateUserParam private[UpdateUserParamBuilder] (params: Map[String, Any])
-    extends RequestModel(params: Map[String, Any]) {
+    extends RequestModel(params) {
   }
 }
 

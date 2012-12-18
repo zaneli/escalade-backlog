@@ -58,13 +58,7 @@ object CustomFieldInfo {
     override val name: String,
     override val description: Option[String],
     override val required: Boolean,
-    override val issueTypes: Array[IssueType]) extends CustomFieldInfo(
-    id: Int,
-    customType: CustomFieldType,
-    name: String,
-    description: Option[String],
-    required: Boolean,
-    issueTypes: Array[IssueType]) {
+    override val issueTypes: Array[IssueType]) extends CustomFieldInfo(id, customType, name, description, required, issueTypes) {
 
   }
 
@@ -78,13 +72,7 @@ object CustomFieldInfo {
     min: Option[Double],
     max: Option[Double],
     initialValue: Option[Double],
-    unit: Option[String]) extends CustomFieldInfo(
-    id: Int,
-    customType: CustomFieldType,
-    name: String,
-    description: Option[String],
-    required: Boolean,
-    issueTypes: Array[IssueType]) {
+    unit: Option[String]) extends CustomFieldInfo(id, customType, name, description, required, issueTypes) {
 
   }
 
@@ -99,13 +87,7 @@ object CustomFieldInfo {
     initialShift: Option[Int],
     initialDate: Option[java.util.Date],
     min: Option[java.util.Date],
-    max: Option[java.util.Date]) extends CustomFieldInfo(
-    id: Int,
-    customType: CustomFieldType,
-    name: String,
-    description: Option[String],
-    required: Boolean,
-    issueTypes: Array[IssueType]) {
+    max: Option[java.util.Date]) extends CustomFieldInfo(id, customType, name, description, required, issueTypes) {
 
   }
 
@@ -116,13 +98,7 @@ object CustomFieldInfo {
     override val description: Option[String],
     override val required: Boolean,
     override val issueTypes: Array[IssueType],
-    items: Array[Item]) extends CustomFieldInfo(
-    id: Int,
-    customType: CustomFieldType,
-    name: String,
-    description: Option[String],
-    required: Boolean,
-    issueTypes: Array[IssueType]) {
+    items: Array[Item]) extends CustomFieldInfo(id, customType, name, description, required, issueTypes) {
 
   }
 
@@ -134,13 +110,7 @@ object CustomFieldInfo {
     override val required: Boolean,
     override val issueTypes: Array[IssueType],
     allowInput: Boolean,
-    items: Array[Item]) extends CustomFieldInfo(
-    id: Int,
-    customType: CustomFieldType,
-    name: String,
-    description: Option[String],
-    required: Boolean,
-    issueTypes: Array[IssueType]) {
+    items: Array[Item]) extends CustomFieldInfo(id, customType, name, description, required, issueTypes) {
 
   }
 }
