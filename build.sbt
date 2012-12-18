@@ -12,11 +12,10 @@ libraryDependencies ++= {
   Seq(
     "org.apache.xmlrpc" % "xmlrpc-client" % "3.1.3" % "compile"
       exclude("junit", "junit"),
-    "org.scala-tools.time" % "time_2.9.1" % "0.5" % "compile",
-    "junit" % "junit" % "4.9" % "test",
-    "org.mockito" % "mockito-core" % "1.9.0" % "test",
-    "org.specs2" %% "specs2" % "1.10" % "test",
-    "org.specs2" %% "specs2-scalaz-core" % "6.0.1" % "test"
+    "org.scalaj" %% "scalaj-time" % "0.6" % "compile",
+    "junit" % "junit" % "4.11" % "test",
+    "org.mockito" % "mockito-core" % "1.9.5" % "test",
+    "org.specs2" %% "specs2" % "1.12.3" % "test"
   )
 }
 
