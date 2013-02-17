@@ -1,6 +1,8 @@
 #escalade-backlog
 [Backlog](http://www.backlog.jp/ "Backlog") API の Scala ラッパーライブラリです。
 
+[![Build Status](https://travis-ci.org/zaneli/escalade-backlog.png?branch=master)](https://travis-ci.org/zaneli/escalade-backlog)
+
 ##一般APIの使用
     val client = BacklogClientFactory(<スペースID>, <ユーザーID>, <パスワード>).createClient
     val projects = client.getProjects
