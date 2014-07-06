@@ -10,9 +10,9 @@ import org.specs2.runner.JUnitRunner
 @RunWith(classOf[JUnitRunner])
 class DeleteVersionTest extends Specification with Mockito with TestUtil {
 
-  "プロジェクトの発生バージョン/マイルストーンを削除" in {
+  "プロジェクトの発生バージョン/マイルストーンを削除" should {
 
-    "発生バージョン/マイルストーンIDを指定" should {
+    "発生バージョン/マイルストーンIDを指定" in {
       using(new ByteArrayOutputStream()) { request =>
         val client = getClient("DeleteVersion.xml", request)
         val result = client.deleteVersion(123)

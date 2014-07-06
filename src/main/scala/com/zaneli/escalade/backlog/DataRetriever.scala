@@ -4,7 +4,7 @@ import com.zaneli.escalade.backlog.model.response.ResponseModel
 
 private object DataRetriever {
 
-  import org.joda.time.format.DateTimeFormat
+  import com.github.nscala_time.time.Imports.DateTimeFormat
   private val dateFormatter = DateTimeFormat.forPattern("yyyyMMdd");
   private val dateTimeFormatter = DateTimeFormat.forPattern("yyyyMMddHHmmss");
 

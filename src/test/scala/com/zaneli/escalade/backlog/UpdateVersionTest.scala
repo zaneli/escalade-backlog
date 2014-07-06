@@ -12,9 +12,9 @@ import org.specs2.runner.JUnitRunner
 @RunWith(classOf[JUnitRunner])
 class UpdateVersionTest extends Specification with Mockito with TestUtil {
 
-  "プロジェクトの発生バージョン/マイルストーンを更新" in {
+  "プロジェクトの発生バージョン/マイルストーンを更新" should {
 
-    "発生バージョン/マイルストーンIDと発生バージョン/マイルストーン名のみ指定" should {
+    "発生バージョン/マイルストーンIDと発生バージョン/マイルストーン名のみ指定" in {
       using(new ByteArrayOutputStream()) { request =>
         val client = getClient("UpdateVersion.xml", request)
         val result = client.updateVersion(UpdateVersionParamBuilder(12, "リリースバージョン1.0").build)

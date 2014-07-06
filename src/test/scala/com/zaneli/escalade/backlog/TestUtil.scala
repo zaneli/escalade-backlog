@@ -2,12 +2,11 @@ package com.zaneli.escalade.backlog
 
 import java.io.{ ByteArrayOutputStream, OutputStream }
 
+import com.github.nscala_time.time.Imports.DateTimeFormat
 import com.zaneli.escalade.backlog.admin.BacklogAdminClient
 import org.apache.xmlrpc.client.XmlRpcClient
-import org.joda.time.format.DateTimeFormat
 import org.specs2.mock.Mockito
 
-import scala.io.Codec
 import scala.xml.{ Elem, XML }
 
 trait TestUtil extends Mockito {
@@ -34,7 +33,7 @@ trait TestUtil extends Mockito {
   }
 
   def getActualRequest(out: ByteArrayOutputStream): Elem = {
-    XML.loadString(new String(out.toByteArray, Codec.UTF8))
+    XML.loadString(new String(out.toByteArray, "UTF-8"))
   }
 
   def getExpectedRequest(fileName: String): Elem = {
@@ -52,7 +51,7 @@ trait TestUtil extends Mockito {
 
   def getImgFileData(): Array[Byte] = {
     using(classOf[TestUtil].getResourceAsStream("logo_mark.png")) { in =>
-      return Stream.continually(in.read).takeWhile(-1 !=).map(_.toByte).toArray
+      return Stream.continually(in.read).takeWhile(_ != -1).map(_.toByte).toArray
     }
   }
 

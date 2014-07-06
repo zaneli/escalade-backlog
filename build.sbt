@@ -2,20 +2,22 @@ name := "escalade-backlog"
 
 version := "0.0.1"
 
-scalaVersion := "2.9.2"
+scalaVersion := "2.11.1"
 
 organization := "com.zaneli"
 
-scalacOptions ++= Seq("-unchecked", "-deprecation")
+crossScalaVersions := Seq("2.10.4", "2.11.1")
+
+scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature", "-language:implicitConversions")
 
 libraryDependencies ++= {
   Seq(
     "org.apache.xmlrpc" % "xmlrpc-client" % "3.1.3" % "compile"
       exclude("junit", "junit"),
-    "org.scalaj" %% "scalaj-time" % "0.6" % "compile",
+    "com.github.nscala-time" %% "nscala-time" % "1.2.0" % "compile",
     "junit" % "junit" % "4.11" % "test",
     "org.mockito" % "mockito-core" % "1.9.5" % "test",
-    "org.specs2" %% "specs2" % "1.12.3" % "test"
+    "org.specs2" %% "specs2" % "2.3.12" % "test"
   )
 }
 

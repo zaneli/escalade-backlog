@@ -105,5 +105,6 @@ class UpdateCustomFieldTest extends Specification with Mockito with TestUtil {
       }
       case _ => failure(customField.getClass.toString)
     }
+    done
   }
 }
