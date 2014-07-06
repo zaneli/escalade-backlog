@@ -19,35 +19,29 @@
 その他、[API リファレンス](http://www.backlog.jp/api/ "Backlog API リファレンス")を参照下さい。
 
 ## Maven Repository
-# pom.xml
+
+* escalade-backlog は Scala 2.10.x, Scala 2.11.x に対応しています。
+
+### pom.xml
     <repositories>
       <repository>
         <id>com.zaneli</id>
         <name>Zaneli Repository</name>
-        <url>http://www.zaneli.com/repositories/snapshots</url>
+        <url>http://www.zaneli.com/repositories</url>
       </repository>
     </repositories>
 
     <dependencies>
       <dependency>
         <groupId>com.zaneli</groupId>
-        <artifactId>escalade-backlog_2.9.2</artifactId>
+        <artifactId>escalade-backlog_2.11</artifactId>
         <version>0.0.1</version>
       </dependency>
     </dependencies>
 
-# build.sbt(Scala 2.9.2)
-    scalaVersion := "2.9.2"
-
-    resolvers += "Zaneli Repository" at "http://www.zaneli.com/repositories/snapshots"
+### build.sbt
+    resolvers += "Zaneli Repository" at "http://www.zaneli.com/repositories"
 
     libraryDependencies ++= {
       Seq("com.zaneli" %% "escalade-backlog" % "0.0.1" % "compile")
-    }
-
-# build.sbt(その他のバージョン)
-    resolvers += "Zaneli Repository" at "http://www.zaneli.com/repositories/snapshots"
-
-    libraryDependencies ++= {
-      Seq("com.zaneli" % "escalade-backlog_2.9.2" % "0.0.1" % "compile")
     }

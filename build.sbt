@@ -27,5 +27,4 @@ publishArtifact in Test := false
 
 pomIncludeRepository := { _ => false }
 
-publishTo := Some(Resolver.file(
-  "file", new java.io.File(System.getProperty("repository.url", ""))))
+publishTo := Some(Resolver.file("file",  new File(Path.userHome.absolutePath + "/.m2/repository")))
