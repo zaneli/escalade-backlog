@@ -2,12 +2,9 @@ package com.zaneli.escalade.backlog
 
 import java.io.ByteArrayOutputStream
 
-import org.junit.runner.RunWith
 import org.specs2.mock.Mockito
 import org.specs2.mutable._
-import org.specs2.runner.JUnitRunner
 
-@RunWith(classOf[JUnitRunner])
 class GetVersionsTest extends Specification with Mockito with TestUtil {
 
   "プロジェクトの発生バージョン/マイルストーンを取得" should {

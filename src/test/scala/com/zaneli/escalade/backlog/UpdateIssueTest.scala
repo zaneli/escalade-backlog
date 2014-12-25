@@ -6,12 +6,9 @@ import com.zaneli.escalade.backlog.model.request.IssueContentParamBuilder.Custom
 
 import java.io.ByteArrayOutputStream
 
-import org.junit.runner.RunWith
 import org.specs2.mock.Mockito
 import org.specs2.mutable._
-import org.specs2.runner.JUnitRunner
 
-@RunWith(classOf[JUnitRunner])
 class UpdateIssueTest extends Specification with Mockito with TestUtil {
 
   "課題を更新" should {

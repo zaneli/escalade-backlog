@@ -6,12 +6,9 @@ import com.zaneli.escalade.backlog.admin.model.request.AddCustomFieldParamBuilde
 
 import java.io.ByteArrayOutputStream
 
-import org.junit.runner.RunWith
 import org.specs2.mock.Mockito
 import org.specs2.mutable._
-import org.specs2.runner.JUnitRunner
 
-@RunWith(classOf[JUnitRunner])
 class AddCustomFieldTest extends Specification with Mockito with TestUtil {
 
   "カスタム属性を作成" should {

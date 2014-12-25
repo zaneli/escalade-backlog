@@ -5,12 +5,9 @@ import com.zaneli.escalade.backlog.admin.model.request.AddProjectParamBuilder
 
 import java.io.ByteArrayOutputStream
 
-import org.junit.runner.RunWith
 import org.specs2.mock.Mockito
 import org.specs2.mutable._
-import org.specs2.runner.JUnitRunner
 
-@RunWith(classOf[JUnitRunner])
 class AddProjectTest extends Specification with Mockito with TestUtil {
 
   "プロジェクトを追加" should {

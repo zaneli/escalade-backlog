@@ -2,12 +2,9 @@ package com.zaneli.escalade.backlog
 
 import java.io.ByteArrayOutputStream
 
-import org.junit.runner.RunWith
 import org.specs2.mock.Mockito
 import org.specs2.mutable._
-import org.specs2.runner.JUnitRunner
 
-@RunWith(classOf[JUnitRunner])
 class GetActivityTypesTest extends Specification with Mockito with TestUtil {
 
   "課題の更新情報の種別一覧を取得" should {

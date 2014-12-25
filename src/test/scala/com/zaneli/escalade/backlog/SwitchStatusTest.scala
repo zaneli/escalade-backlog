@@ -5,12 +5,9 @@ import com.zaneli.escalade.backlog.model.request.SwitchStatusParamBuilder
 
 import java.io.ByteArrayOutputStream
 
-import org.junit.runner.RunWith
 import org.specs2.mock.Mockito
 import org.specs2.mutable._
-import org.specs2.runner.JUnitRunner
 
-@RunWith(classOf[JUnitRunner])
 class SwitchStatusTest extends Specification with Mockito with TestUtil {
 
   "課題の状態を変更" should {

@@ -6,12 +6,9 @@ import com.zaneli.escalade.backlog.model.request.IssueConditionParamBuilder.Cust
 
 import java.io.ByteArrayOutputStream
 
-import org.junit.runner.RunWith
 import org.specs2.mock.Mockito
 import org.specs2.mutable._
-import org.specs2.runner.JUnitRunner
 
-@RunWith(classOf[JUnitRunner])
 class FindIssueTest extends Specification with Mockito with TestUtil {
 
   "指定した条件に該当する課題件数を取得" should {

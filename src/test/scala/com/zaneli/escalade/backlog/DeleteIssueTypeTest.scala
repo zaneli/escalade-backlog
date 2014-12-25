@@ -4,12 +4,9 @@ import com.zaneli.escalade.backlog.model.ColorType
 
 import java.io.ByteArrayOutputStream
 
-import org.junit.runner.RunWith
 import org.specs2.mock.Mockito
 import org.specs2.mutable._
-import org.specs2.runner.JUnitRunner
 
-@RunWith(classOf[JUnitRunner])
 class DeleteIssueTypeTest extends Specification with Mockito with TestUtil {
 
   "プロジェクトの課題種別を削除" should {

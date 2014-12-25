@@ -1,12 +1,14 @@
 package com.zaneli.escalade.backlog
 
-import java.io.{ ByteArrayOutputStream, OutputStream }
-
 import com.github.nscala_time.time.Imports.DateTimeFormat
 import com.zaneli.escalade.backlog.admin.BacklogAdminClient
+
+import java.io.{ ByteArrayOutputStream, OutputStream }
+
 import org.apache.xmlrpc.client.XmlRpcClient
 import org.specs2.mock.Mockito
 
+import scala.language.reflectiveCalls
 import scala.xml.{ Elem, XML }
 
 trait TestUtil extends Mockito {
@@ -29,7 +31,7 @@ trait TestUtil extends Mockito {
   def using[A <: { def close(): Unit }, B](resource: A)(f: A => B) = try {
     f(resource)
   } finally {
-    resource.close
+    resource.close()
   }
 
   def getActualRequest(out: ByteArrayOutputStream): Elem = {
