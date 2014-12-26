@@ -26,7 +26,12 @@ object User {
     val mailAddress = getStringValue(map, "mail_address")
     val role = getStringValue(map, "role") map { RoleType(_) }
     val mailSetting = map.get("mail_setting") map {
-      _ match { case x: java.util.Map[String, Boolean] => MailSetting(x.getOrElse("mail", false), x.getOrElse("comment", false)) }
+      _ match {
+        case x: java.util.Map[_, _] => {
+          val map = x.asInstanceOf[java.util.Map[String, Boolean]]
+          MailSetting(map.getOrElse("mail", false), map.getOrElse("comment", false))
+        }
+      }
     }
     val createdOn = getDateValue(map, "created_on")
     val updatedOn = getDateValue(map, "updated_on")

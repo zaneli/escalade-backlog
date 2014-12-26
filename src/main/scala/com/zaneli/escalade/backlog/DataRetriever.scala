@@ -1,6 +1,7 @@
 package com.zaneli.escalade.backlog
 
 import com.zaneli.escalade.backlog.model.response.ResponseModel
+import scala.reflect.ClassTag
 
 private object DataRetriever {
 
@@ -84,10 +85,11 @@ private object DataRetriever {
     data match {
       case Some(b: Array[Byte]) => b
       case None => Array()
+      case Some(x) => throw new UnsupportedOperationException("Unexpected Type: " + x.getClass)
     }
   }
 
-  private[backlog] def createModels[A <: ResponseModel: ClassManifest](map: Map[String, Any], key: String, model: Class[A]): Array[A] = {
+  private[backlog] def createModels[A <: ResponseModel: ClassTag](map: Map[String, Any], key: String, model: Class[A]): Array[A] = {
     val data = map.get(key)
     data match {
       case Some(x: Object) => createModels(x, model)
@@ -96,9 +98,9 @@ private object DataRetriever {
     }
   }
 
-  private[backlog] def createModels[A <: ResponseModel: ClassManifest](xs: Object, model: Class[A]): Array[A] = xs match {
+  private[backlog] def createModels[A <: ResponseModel: ClassTag](xs: Object, model: Class[A]): Array[A] = xs match {
     case array: Array[Object] => {
-      val c = implicitly[ClassManifest[A]]
+      val c = implicitly[ClassTag[A]]
       array.map { createModel(_, model) }.toArray[A](c)
     }
   }
@@ -113,9 +115,9 @@ private object DataRetriever {
   }
 
   private[backlog] def createModel[A <: ResponseModel](x: Object, model: Class[A]): A = x match {
-    case map: java.util.Map[String, Any] => {
+    case map: java.util.Map[_, _] => {
       import scala.collection.JavaConversions._
-      createModelCompanion[A](model.getName, map.toMap)
+      createModelCompanion[A](model.getName, map.asInstanceOf[java.util.Map[String, Any]].toMap)
     }
     case array: Array[Object] if array.size == 1 => {
       // http://www.backlog.jp/api/method_updateIssueType.html のレスポンスXMLの例では、単一要素を返すAPIで配列要素数1の配列で返る場合も
@@ -131,7 +133,7 @@ private object DataRetriever {
     val method = cls.getDeclaredMethod("apply", classOf[Map[String, Any]])
     method.setAccessible(true)
     try {
-    method.invoke(obj, map).asInstanceOf[A]
+      method.invoke(obj, map).asInstanceOf[A]
     } catch {
       case e: java.lang.reflect.InvocationTargetException => throw new BacklogException("response data is empty")
     }

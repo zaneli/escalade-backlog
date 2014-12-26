@@ -15,6 +15,8 @@ import org.apache.xmlrpc.serializer.{
 import org.apache.ws.commons.util.NamespaceContextImpl
 import org.xml.sax.ContentHandler
 import scala.collection.mutable.WrappedArray
+import scala.language.reflectiveCalls
+import scala.util.Try
 
 class EscaladeTypeFactory(org: TypeFactory) extends TypeFactory {
 
@@ -78,7 +80,7 @@ class MultiParamSerializer(pTypeFactory: TypeFactory, pConfig: XmlRpcStreamConfi
     param match {
       case num: Int => Integer.valueOf(num)
       case str: String => str
-      case model: { def id: Int } => Integer.valueOf(model.id)
+      case HasId(model) => Integer.valueOf(model.id)
     }
   }
 }
@@ -88,5 +90,18 @@ class FormatedDateSerializer extends StringSerializer {
     pData match {
       case date: FormatedDate => super.write(pHandler, date.format)
     }
+  }
+}
+
+object HasId {
+  def unapply(foo: AnyRef): Option[{ def id: Int }] = {
+    if (containsMethod(foo, "id")) {
+      Some(foo.asInstanceOf[{ def id: Int }])
+    } else {
+      None
+    }
+  }
+  private def containsMethod(x: AnyRef, name: String, paramTypes: Class[_]*): Boolean = {
+    Try(x.getClass.getMethod(name, paramTypes: _*)).isSuccess
   }
 }
